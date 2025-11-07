@@ -28,23 +28,24 @@ Um total de aproximadamente 94 mil registros foi utilizado como base para os cá
 
 A análise foi realizada exclusivamente em SQL, com as seguintes etapas:
 
-1. Criação da tabela analise_rfm — armazena as métricas de recência, frequência e valor monetário de cada cliente.
-2. Geração de tabela temporária — para cálculo da data de referência e consolidação das compras.
-3. Cálculo dos indicadores RFM:
+1. Importação dos dados da base df.csv (etapa realizada manualmente)
+2. Criação da tabela analise_rfm — armazena as métricas de recência, frequência e valor monetário de cada cliente.
+3. Geração de tabela temporária — para cálculo da data de referência e consolidação das compras.
+4. Cálculo dos indicadores RFM:
 
 * Recência: diferença entre a data de referência e a última compra.
 * Frequência: número de pedidos realizados pelo cliente.
 * Valor Monetário: soma dos valores gastos.
 
-4. Cálculo de quartis — criação da tabela quartis para definir faixas de classificação das métricas RFM.
-5. Atribuição de scores R, F e M — conversão dos valores contínuos em escores de 1 a 4.
-6. Geração do score_rfm e segmento_rfm — combinação dos três escores para representar o perfil do cliente.
-7. Criação de clusters e decisões estratégicas.
+5. Cálculo de quartis — criação da tabela quartis para definir faixas de classificação das métricas RFM.
+6. Atribuição de scores R, F e M — conversão dos valores contínuos em escores de 1 a 4.
+7. Geração do score_rfm e segmento_rfm — combinação dos três escores para representar o perfil do cliente.
+8. Criação de clusters e decisões estratégicas.
 
 ## Ferramentas e bibliotecas utilizadas:
 
-* PostgreSQL / SQLite (compatível com ambos)
-* Funções de janela (ROW_NUMBER, MAX, COUNT, SUM)
+* PostgreSQL
+* Window Functions (ROW_NUMBER, MAX, COUNT, SUM)
 * CTEs e manipulação de quartis
 * Atualizações condicionais via CASE WHEN
 
